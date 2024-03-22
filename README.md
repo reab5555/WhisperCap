@@ -1,7 +1,7 @@
 
 
 # WhisperCap
-This tool uses OpenAI's Whisper model to transcribe video and audio files and create subtitles. it supports many languages and can automatically determine the video or audio file spoken language.
+This tool uses Whisper model to transcribe video and audio files and create subtitles. it supports many languages and can automatically determine the video or audio file spoken language.
 
 <p align="left">
   <img src="/speech2text.png" alt="Alt text for image1" width="155"/>
