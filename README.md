@@ -5,4 +5,5 @@ This tool uses OpenAI's Whisper model to transcribe video and audio files and cr
 The Whisper model is an automatic speech recognition system developed by OpenAI, designed to transcribe spoken language into text. It is capable of handling a wide range of audio inputs, including noisy environments, multiple speakers, and various accents and languages. Additionally, Whisper can be used to create subtitles for videos, making it accessible for content creators and media professionals to automatically generate accurate text for spoken dialogue. This model leverages deep learning techniques to improve its transcription accuracy and adaptability across different audio conditions and speech variations.
 
 ## Requirments
-A unique API key must be set in the script in order to transcribe files. please refer to https://platform.openai.com/api-keys.
+A unique API key must be set in the script in order to transcribe files. please refer to https://platform.openai.com/api-keys.    
+set it in the script where: api_key = "API_KEY_HERE"
