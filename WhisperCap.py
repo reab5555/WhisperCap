@@ -96,7 +96,7 @@ for i in tqdm(range(n_chunks), desc='Transcribing Media to Text'):
     print(transcription_txt)
 
     # Save the transcription as a .txt file
-    txt_file_path = os.path.join(transcription_data_folder, f"{output_name} - text - hebrew.txt")
+    txt_file_path = os.path.join(transcription_data_folder, f"{output_name} - text.txt")
     with open(txt_file_path, "w", encoding='utf-8') as f:
         f.write(transcription_txt)
 
@@ -131,7 +131,7 @@ for i in tqdm(range(n_chunks), desc='Transcribing Media to Text'):
     time_offset += 30
 
     # Save the transcription as an .srt file
-    srt_file_path = os.path.join(transcription_data_folder, f"{output_name} - hebrew.srt")
+    srt_file_path = os.path.join(transcription_data_folder, f"{output_name}.srt")
     with open(srt_file_path, "w", encoding='utf-8') as f:
         f.write(transcription_srt)
 
