@@ -23,6 +23,6 @@ The tool has already been widely used in professional work environments for acad
 * A unique API key must be set in the script in order to transcribe files. please refer to https://platform.openai.com/api-keys.    
 set it in the script where: api_key = "API_KEY_HERE"
 * Make sure the following packages are installed, and if not:   
-pip install openai
+pip install openai   
 pip install moviepy
 
