@@ -13,7 +13,7 @@ The Whisper model is an automatic speech recognition system developed by OpenAI,
 
 ### Advantages of WhisperCap
 * The main advantage of this tool is the ability to bypass the limitation of the transcription time by working in chunks, so video or audio files that are even about an hour long can be transcribed in almost any language.
-* The tool is based on a GUI, so it is easy and simple to transcribe files even for those who do not understand how a script works.
+* Based on a GUI, so it is easy and simple to transcribe files even for those who do not understand how a script works.
 * It almost completely eliminates the need for a human to transcribe videos manually, which saves a lot of time and money when one wants to transcribe videos or lectures accurately and efficiently. 
 
 * Primarily developed for academic needs and universities with non-profit intentions, the tool has already been widely used in professional work environments for academic and non-academic needs, for example, re-transcribing lectures in different languages.
