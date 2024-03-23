@@ -17,7 +17,7 @@ The tool has already been widely used in professional work environments for acad
 ### Remarks
 * We recommend to go through the transcribed text to check that it is in fact correct.      
 * It uses the model and sends a request to the server twice, once for exporting text and once for exporting subtitles, so this should be taken into account.
-* Processing time may vary depending on the length of the video or audio file, and network stability and network availability.
+* Processing time may vary depending on the size and duration of the video or audio file, and network stability and network availability.
   
 ## Requirements
 A unique API key must be set in the script in order to transcribe files. please refer to https://platform.openai.com/api-keys.    
