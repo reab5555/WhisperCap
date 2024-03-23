@@ -16,7 +16,7 @@ The Whisper model is an automatic speech recognition system developed by OpenAI,
 * Based on a GUI, so it is easy and simple to transcribe files even for those who do not understand how a script works.
 * It almost completely eliminates the need for a human to transcribe videos manually, which saves a lot of time and money when one wants to transcribe videos or lectures accurately and efficiently. 
 
-* Primarily developed for academic needs and universities with non-profit intentions, the tool has already been widely used in professional work environments for academic and non-academic needs, for example, re-transcribing lectures in different languages.
+Primarily developed for academic needs and universities with non-profit intentions, the tool has already been widely used in professional work environments for academic and non-academic needs, for example, re-transcribing lectures in different languages.
 
 ### Remarks
 * We recommend to go through the transcribed text to check that it is in fact correct.      
