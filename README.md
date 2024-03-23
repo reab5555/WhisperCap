@@ -26,6 +26,6 @@ Primarily developed for academic needs and universities with non-profit intentio
 set it in the script where: api_key = "API_KEY_HERE"
 * Make sure the following packages are installed with:   
 pip install openai   
-pip install moviepy
+pip install moviepy   
 pip install PyQt6
 
