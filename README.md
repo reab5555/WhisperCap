@@ -30,4 +30,5 @@ set it in the script where: api_key = "API_KEY_HERE"
 pip install openai   
 pip install moviepy   
 pip install PyQt6
+pip install srt
 
