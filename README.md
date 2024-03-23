@@ -15,7 +15,7 @@ The main advantage of this tool is the ability to bypass the limitation of the t
 The tool has already been widely used in professional work environments for academic and non-academic needs, for example, re-transcribing lectures in different languages.
 
 ### Remarks
-* We recommend to go through the transcribed text to check that the transcribed text is in fact correct.      
+* We recommend to go through the transcribed text to check that it is in fact correct.      
 * It uses the model and sends a request to the server twice, once for exporting text and once for exporting subtitles, so this should be taken into account.
 * Processing time may vary depending on the length of the video or audio file, and network stability and network availability.
   
