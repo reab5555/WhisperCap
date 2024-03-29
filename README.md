@@ -25,8 +25,8 @@ Primarily developed for academic needs and universities with non-profit intentio
    
 ### Scripts
 There are two options running the model and transcribing:    
-WhisperCap_API.py - Transcribing using API calls through setting an OpenAI API key into the script.   
-WhisperCap_local.py - Transcribing using the local machine without an API key. this requires ffmpeg.exe in the script directory in order to load it.   
+* WhisperCap_API.py - Transcribing using API calls through setting an OpenAI API key into the script.   
+* WhisperCap_local.py - Transcribing using the local machine without an API key. this requires ffmpeg.exe in the script directory in order to load it.   
    
 ## Requirements
 * For WhisperCap_API.py, a unique API key must be set in the script in order to transcribe files. please refer to https://platform.openai.com/api-keys.
