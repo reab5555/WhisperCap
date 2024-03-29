@@ -31,7 +31,8 @@ There are two options running the model and transcribing:
 ## Requirements
 * For WhisperCap_API.py, a unique API key must be set in the script in order to transcribe files. please refer to https://platform.openai.com/api-keys.
 set it in the script where: api_key = "API_KEY_HERE"   
-* For WhisperCap_local.py, download ffmpeg package with the ffmpeg.exe from either https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z or https://github.com/GyanD/codexffmpeg/releases/tag/6.1.1   
+* For WhisperCap_local.py, download ffmpeg package with the ffmpeg.exe from either https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z or https://github.com/GyanD/codexffmpeg/releases/tag/6.1.1
+after downloading the ffmpeg package, ffmpeg.exe is found in "ffmpeg\bin\ffmpeg.exe" - place it in the script directory.
 * Make sure the following packages are installed with:   
 pip install openai   
 pip install moviepy   
