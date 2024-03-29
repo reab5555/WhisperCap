@@ -19,6 +19,9 @@ The Whisper model is an automatic speech recognition system developed by OpenAI,
 Primarily developed for academic needs and universities with non-profit intentions, the tool has already been widely used in professional work environments for academic and non-academic needs, for example, re-transcribing lectures in different languages.
 
 ### Remarks
+* There are two options running the model and transcribing:    
+WhisperCap_API.py - Transcribing using API calls through setting an OpenAI API key into the script.   
+WhisperCap_local.py - Transcribing using the local machine without an API key.
 * We recommend to go through the transcribed text to check that it is in fact correct.      
 * It uses the model and sends a request to the server twice, once for exporting text and once for exporting subtitles, so this should be taken into account.
 * Processing time may vary depending on the size and duration of the video or audio file, network stability and availability.
