@@ -21,7 +21,7 @@ Primarily developed for academic needs and universities with non-profit intentio
 ### Remarks
 * We recommend to go through the transcribed text to check that it is in fact correct.      
 * It uses the model and sends a request to the server twice, once for exporting text and once for exporting subtitles, so this should be taken into account.
-* Processing time may vary depending on the size and duration of the video or audio file, network stability and availability.
+* Processing time may vary depending on the size and duration of the video or audio file, network or local computation stability and availability.
    
 ### Scripts
 There are two options running the model and transcribing:    
@@ -30,7 +30,8 @@ There are two options running the model and transcribing:
    
 ## Requirements
 * For WhisperCap_API.py, a unique API key must be set in the script in order to transcribe files - please refer to https://platform.openai.com/api-keys
-and set the API key in the script where: api_key = "API_KEY_HERE". please notice that this have a cost-per-use (https://openai.com/pricing)
+and set the API key in the script where: api_key = "API_KEY_HERE".   
+Please notice that this have a cost-per-use (https://openai.com/pricing).   
 * For WhisperCap_local.py, download ffmpeg package with the ffmpeg.exe from either https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z or https://github.com/GyanD/codexffmpeg/releases/tag/6.1.1
 after downloading the ffmpeg package, ffmpeg.exe is found in "ffmpeg\bin\ffmpeg.exe" - place it in the script directory.
    
