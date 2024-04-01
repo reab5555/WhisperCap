@@ -40,5 +40,5 @@ pip install openai
 pip install moviepy   
 pip install PyQt6   
 pip install srt
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install transformers
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
