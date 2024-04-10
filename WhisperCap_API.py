@@ -64,54 +64,38 @@ class TranscriptionThread(QThread):
             audio_chunk = video.subclip(start, end).audio if file_extension == '.mp4' else audio.subclip(start, end)
             audio_chunk.write_audiofile(temp_file_path, codec='pcm_s16le')
 
-            with open(temp_file_path, "rb") as audio_file:
-                    if self.transcribe_to_text:
-                        response_txt = client.audio.transcriptions.create(
-                            file=audio_file,
-                            model="whisper-1",
-                            response_format="text",
-                        )
-                        # Assuming the response is not always a dictionary and might be a string directly
-                        if isinstance(response_txt, dict) and 'text' in response_txt:
-                            transcription_text_part = response_txt['text']
-                        elif isinstance(response_txt, str):
-                            transcription_text_part = response_txt
-                        else:
-                            # Handle unexpected response types, maybe log an error or throw an exception
-                            print("Unexpected response format from transcription service.")
-                            transcription_text_part = ""
+            if self.transcribe_to_srt:
+                with open(temp_file_path, "rb") as audio_file:
+                    response_srt = client.audio.transcriptions.create(
+                        file=audio_file,
+                        model="whisper-1",
+                        response_format="srt",
+                    )
 
-                        transcription_txt += transcription_text_part
+                # Directly use response_srt if it's already a string, which is expected for SRT content
+                if isinstance(response_srt, str):
+                    srt_content = response_srt
+                else:
+                    print("Unexpected SRT response format.")
+                    srt_content = ""
 
-                    if self.transcribe_to_srt:
-                        with open(temp_file_path, "rb") as audio_file:
-                            response_srt = client.audio.transcriptions.create(
-                                file=audio_file,
-                                model="whisper-1",
-                                response_format="srt",
-                            )
+                # Parse and adjust the SRT content as needed
+                segments_list = list(srt.parse(srt_content))
+                if segments_list:  # Check if segments_list is not empty
+                    for segment in segments_list:
+                        segment.index += last_index
+                        segment.start += datetime.timedelta(seconds=time_offset)
+                        segment.end += datetime.timedelta(seconds=time_offset)
+                        segment.start = segment.start - datetime.timedelta(microseconds=segment.start.microseconds)
+                        segment.end = segment.end - datetime.timedelta(microseconds=segment.end.microseconds)
 
-                        # Directly use response_srt if it's already a string, which is expected for SRT content
-                        if isinstance(response_srt, str):
-                            srt_content = response_srt
-                        else:
-                            print("Unexpected SRT response format.")
-                            srt_content = ""
-
-                        # Parse and adjust the SRT content as needed
-                        segments_list = list(srt.parse(srt_content))
-                        for segment in segments_list:
-                            segment.index += last_index
-                            segment.start += datetime.timedelta(seconds=time_offset)
-                            segment.end += datetime.timedelta(seconds=time_offset)
-                            segment.start = segment.start - datetime.timedelta(microseconds=segment.start.microseconds)
-                            segment.end = segment.end - datetime.timedelta(microseconds=segment.end.microseconds)
-
-                        modified_srt = srt.compose(segments_list)
-                        transcription_srt += modified_srt
-                        last_index = segments_list[-1].index + 1
-                        time_offset += 30
-
+                    modified_srt = srt.compose(segments_list)
+                    transcription_srt += modified_srt
+                    last_index = segments_list[-1].index + 1  # Safe to update last_index here
+                    time_offset += 30
+                else:
+                    # Handle the case when no segments are returned
+                    print(f"No SRT segments found for chunk {i}. Skipping update of last_index and time_offset.")
 
             self.progress.emit(int((i + 1) / n_chunks * 100))
 
