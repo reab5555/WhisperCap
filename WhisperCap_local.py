@@ -1,7 +1,7 @@
 import sys
 import os
 import math
-from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialog, QProgressBar, QCheckBox
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QFileDialog, QProgressBar, QCheckBox, QComboBox
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from moviepy.editor import VideoFileClip, AudioFileClip
 import srt
@@ -21,11 +21,12 @@ class TranscriptionThread(QThread):
     finished = pyqtSignal(str, str)
     errorOccurred = pyqtSignal(str)
 
-    def __init__(self, file_path, transcribe_to_text, transcribe_to_srt):
+    def __init__(self, file_path, transcribe_to_text, transcribe_to_srt, language):
         super().__init__()
         self.file_path = file_path
         self.transcribe_to_text = transcribe_to_text
         self.transcribe_to_srt = transcribe_to_srt
+        self.language = language
         self.stopped = False
 
     def run(self):
@@ -89,10 +90,11 @@ class TranscriptionThread(QThread):
                         feature_extractor=processor.feature_extractor,
                         max_new_tokens=128,
                         chunk_length_s=30,
-                        batch_size=16,
+                        batch_size=2,
                         return_timestamps=True,
                         torch_dtype=torch_dtype,
                         device=device,
+                        generate_kwargs={"language": self.language}
                     )
                     result = pipe(temp_file_path)
                     print(result["text"])
@@ -213,6 +215,12 @@ class App(QWidget):
         self.txtCheckbox.stateChanged.connect(self.enableTranscriptionButton)
         self.srtCheckbox.stateChanged.connect(self.enableTranscriptionButton)
 
+        self.languageComboBox = QComboBox(self)
+        self.languageComboBox.addItems(
+            ['en (English)', 'he (Hebrew)', 'it (Italian)', 'fr (French)', 'de (German)', 'zh (Chinese)',
+             'ar (Arabic)'])
+        self.layout.addWidget(self.languageComboBox)
+
     def loadFile(self):
         filePath, _ = QFileDialog.getOpenFileName(self, "Select Media File", "", "Media Files (*.mp4 *.wav *.mp3);;All Files (*)")
         if filePath:
@@ -232,7 +240,9 @@ class App(QWidget):
             self.progressBar.setVisible(True)
             self.transcribeButton.setEnabled(False)
             self.stopButton.setEnabled(True)
-            self.transcriptionThread = TranscriptionThread(self.file_path, self.txtCheckbox.isChecked(), self.srtCheckbox.isChecked())
+            selected_language = self.languageComboBox.currentText()[:2]  # Get the first two characters (language code)
+            self.transcriptionThread = TranscriptionThread(self.file_path, self.txtCheckbox.isChecked(),
+                                                           self.srtCheckbox.isChecked(), selected_language)
             self.transcriptionThread.progress.connect(self.updateProgress)
             self.transcriptionThread.finished.connect(self.transcriptionFinished)
             self.transcriptionThread.errorOccurred.connect(self.showError)
