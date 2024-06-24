@@ -30,7 +30,6 @@ after downloading the ffmpeg package, ffmpeg.exe is found in "ffmpeg\bin\ffmpeg.
 * Make sure the following packages are installed with:
 ```bash
 
-pip install openai moviepy PyQt6 srt transformers
+pip install openai moviepy PyQt6 srt transformers accelerate
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-pip install accelerate
 ```
