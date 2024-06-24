@@ -27,10 +27,10 @@ Primarily developed for academic needs and universities with non-profit intentio
 * Download ffmpeg package with the ffmpeg.exe from either https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z or https://github.com/GyanD/codexffmpeg/releases/tag/6.1.1
 after downloading the ffmpeg package, ffmpeg.exe is found in "ffmpeg\bin\ffmpeg.exe" - place it in the script directory.
    
-* Make sure the following packages are installed with:   
-pip install openai   
-pip install moviepy   
-pip install PyQt6   
-pip install srt
-pip install transformers
+* Make sure the following packages are installed with:
+```bash
+
+pip install openai moviepy PyQt6 srt transformers
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install accelerate
+```
