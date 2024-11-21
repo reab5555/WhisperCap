@@ -16,16 +16,6 @@ The Whisper model is an automatic speech recognition system developed by OpenAI,
 * Based on a GUI, so it is easy and simple to transcribe files even for those who do not understand how a script works.
 * It almost completely eliminates the need for a human to transcribe videos manually, which saves a lot of time and money when one wants to transcribe videos or lectures accurately and efficiently. 
 
-Primarily developed for academic needs and universities with non-profit intentions, the tool has already been widely used in professional work environments for academic and non-academic needs, for example, re-transcribing lectures in different languages.   
-
-### Remarks
-* We recommend to go through the transcribed text to check that it is in fact correct.      
-* It uses the model and sends a request to the server twice, once for exporting text and once for exporting subtitles, so this should be taken into account.
-* Processing time may vary depending on the size and duration of the video or audio file, network or local computation stability and availability.
-   
-## Requirements
-* Download ffmpeg package with the ffmpeg.exe from either https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z or https://github.com/GyanD/codexffmpeg/releases/tag/6.1.1
-after downloading the ffmpeg package, ffmpeg.exe is found in "ffmpeg\bin\ffmpeg.exe" - place it in the script directory.
    
 * Make sure the following packages are installed with:
 ```bash
