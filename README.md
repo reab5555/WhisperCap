@@ -15,11 +15,3 @@ The Whisper model is an automatic speech recognition system developed by OpenAI,
 * The main advantage of this tool is the ability to bypass the limitation of the transcription time by working in chunks, so video or audio files that are even about an hour long can be transcribed in almost any language.
 * Based on a GUI, so it is easy and simple to transcribe files even for those who do not understand how a script works.
 * It almost completely eliminates the need for a human to transcribe videos manually, which saves a lot of time and money when one wants to transcribe videos or lectures accurately and efficiently. 
-
-   
-* Make sure the following packages are installed with:
-```bash
-
-pip install openai moviepy PyQt6 srt transformers accelerate
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-```
