@@ -3,6 +3,8 @@
 # WhisperCap
 This is a GUI based tool that uses Whisper model to transcribe video and audio files and create subtitles. it can transcribe even a hour-long files, and it supports many languages and can automatically determine the video or audio file spoken language.
 
+[WhisperCap Demo](https://huggingface.co/spaces/reab5555/WhisperCap)
+
 <p align="left">
   <img src="/speech2text.png" alt="Alt text for image1" width="155"/>
 </p>
